@@ -6,15 +6,15 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-   <style>
+  <style>
             {
                 margin:0;
                 padding:0;
             }
             body{
                 font-family:Arial;
-                background-image: url(<%= asset_path 'bg.png' %>);
-				background-repeat:repeat-y repeat-x;
+                background-image: URL(<%= asset_path 'bg.png' %>);
+                background-repeat:repeat-y repeat-x;
             }
             a{
                 color:#444;
@@ -46,7 +46,7 @@
                 -webkit-box-shadow:1px 3px 15px #ddd;
                 box-shadow:1px 3px 15px #ddd;
             }
-			.navigation{
+            .navigation{
                 top:15px;
                 right:10px;
                 position:absolute;
@@ -56,7 +56,7 @@
                 background-color:#fff;
                 -moz-box-shadow:1px 3px 15px #ddd;
                 -webkit-box-shadow:1px 3px 15px #ddd;
-                box-shadow:1px 3px 15px #ddd;								
+                box-shadow:1px 3px 15px #ddd;                               
             }
             .reference p a{
                 text-transform:uppercase;
@@ -68,11 +68,11 @@
             .reference p a:hover{
                 color:#333;
             }
-			.navigation li{
-				float: right;
-				list-style: none;
-				padding: 0 23px 0 23px;
-			}
+            .navigation li{
+                float: right;
+                list-style: none;
+                padding: 0 23px 0 23px;
+            }
 
         </style>
 </head>
