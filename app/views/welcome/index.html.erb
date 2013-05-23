@@ -5,15 +5,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="Elegant Accordion with jQuery and CSS3" />
         <meta name="keywords" content="jquery, slide out,accordion, css3, fadeout, fadein, elegant, fancy, box shadow"/>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
+		
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
         <style>
-            *{
+            {
                 margin:0;
                 padding:0;
             }
             body{
                 font-family:Arial;
-                background:#fff url(pattern.png) repeat top left;
+                background-image: url(<%= asset_path 'bg.png' %>);
+				background-repeat:repeat-y repeat-x;
             }
             a{
                 color:#444;
@@ -22,31 +25,22 @@
                 color:#999;
             }
             .title{
-                width:500px;
+                width:350px;
                 height:152px;
                 position:absolute;
-                top:50px;
-                left:50px;
+                top:10px;
                 background:transparent url(<%= asset_path 'Logo.png' %>) no-repeat top left;
             }
-            a.back{
-                background:transparent url(back.png) no-repeat top left;
-                position:fixed;
-                width:150px;
-                height:27px;
-                outline:none;
-                bottom:0px;
-                left:0px;
-            }
+            
             #content{
                 margin:0 auto;
             }
             .reference{
                 clear:both;
-                top:230px;
+                top:180px;
                 left:10px;
                 position:absolute;
-                text-align:right;
+                text-align:left;
                 width:500px;
                 padding:20px;
                 background-color:#fff;
@@ -55,7 +49,7 @@
                 box-shadow:1px 3px 15px #ddd;
             }
 			.navigation{
-                top:500px;
+                top:15px;
                 right:10px;
                 position:absolute;
                 text-align:right;
@@ -83,26 +77,91 @@
 			}
 
         </style>
+		
+		<noscript>
+			<link rel="stylesheet" type="text/css" href="<%= asset_path 'noscript.css' %>" />
+		</noscript>
     </head>
 
     <body>
-        <div id="content">
-            <a class="back" href="http://tympanus.net/codrops/2010/04/26/elegant-accordion-with-jquery-and-css3/"></a>
-            <div class="title"></div>
-            <div class="reference">
-                
-            </div>
-			<div class="navigation">
-                <ul style="list-style:none; float:right; display: block;">
+
+	<div>
+		
+			<div class="title" style = "margin-left:5%"></div>	
+			<div class="navigation" style = "margin-right:5%;margin-top:6%">				
+                <ul style="list-style:none;display: block; top:0px;">
 					<li><a href="#">Contacts</a></li>
 					<li><a href="#">Projects</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Home</a></li>
 				</ul>
+            </div>	
+	</div>
+	
+	
+	<div>
+       <div class="reference" style="height: 440px; width: 600px;">
+                <div class="wrapper" style="top:10px;">
+                <div id="ei-slider" class="ei-slider">
+                    <ul class="ei-slider-large">
+                        <li>
+                            <%= image_tag 'large/1.jpg' %>
+                            
+                            <div class="ei-title">
+                                <h2>Creative</h2>
+                                <h3>Styles</h3>
+                            </div>
+                        </li>
+                        <li>
+                            <%= image_tag 'large/2.jpg' %>
+
+                            <div class="ei-title">
+                                <h2>Innovative</h2>
+                                <h3>User Friendly</h3>
+                            </div>
+                        </li>
+                        <li>
+                            <%= image_tag 'large/3.jpg' %>
+                            
+                            <div class="ei-title">
+                                <h2>Professional</h2>
+                                <h3>Best Hire</h3>
+                            </div>
+                        </li>
+                        <li>
+                            <%= image_tag 'large/4.jpg' %>
+
+                            <div class="ei-title">
+                                <h2>Dedicated</h2>
+                                <h3>Best Delivery</h3>
+                            </div>
+                        </li>
+                        <li>
+                            <%= image_tag 'large/5.jpg' %>
+                            
+                            <div class="ei-title">
+                                <h2>Quick</h2>
+                                <h3>Hits</h3>
+                            </div>
+                        </li>
+
+                    </ul><!-- ei-slider-large -->
+                    <ul class="ei-slider-thumbs">
+                        <li class="ei-slider-element">Current</li>
+                        <li><a href="#">Slide 1</a> <%= image_tag '1.jpg' %> </li>
+                        <li><a href="#">Slide 2</a> <%= image_tag '2.jpg' %> </li>
+                        <li><a href="#">Slide 3</a> <%= image_tag '3.jpg' %> </li>
+                        <li><a href="#">Slide 4</a> <%= image_tag '4.jpg' %> </li>
+                        <li><a href="#">Slide 5</a> <%= image_tag '5.jpg' %> </li>											
+                    </ul><!-- ei-slider-thumbs -->
+                </div><!-- ei-slider -->
+
             </div>
-
-
-            <ul class="accordion" id="accordion">
+		</div>		
+			<div style = "margin-top:50%;margin-left:1%">
+				<span style = "font-weight:bold">&copy Quick Hits 2013</span>
+			</div>	
+           <ul class="accordion" id="accordion" style="z-index: 3000; top:180px; height:500px; margin-right:5%">
                 <li class="bg1">
                     <div class="heading">Lance Zaldua</div>
                     <div class="bgDescription"></div>
@@ -162,12 +221,24 @@
                     </div>
 
                 </li>
-            </ul>
-        </div>
+            </ul>		
+
+	</div>
+	
 
         <!-- The JavaScript -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script type="text/javascript">
+		<script type="text/javascript">
+		<!-- Corousel -->
+			$(function() {
+                $('#ei-slider').eislideshow({
+					animation			: 'center',
+					autoplay			: true,
+					slideshow_interval	: 3000,
+					titlesFactor		: 0
+                });
+            });			
+			
+		<!-- End Corousel -->
             $(function() {
                 $('#accordion > li').hover(
                     function () {
